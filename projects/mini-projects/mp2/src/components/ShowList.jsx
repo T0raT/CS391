@@ -31,8 +31,6 @@ export default function ShowList() {
   * Back side: Synopsis
   * */
 
-
-
   useEffect(() => {
     async function searchShow() {
         const jikanAPI = await fetch(`https://api.jikan.moe/v4/anime?q=Bleach`);
@@ -40,6 +38,7 @@ export default function ShowList() {
         await setShows(jikanData.data);
         setLoading(false);
     }
+
     searchShow().then(() => console.log("results fetched"))
         .catch(err => console.log("Error while fetching:",err));
   }, [loading]);
