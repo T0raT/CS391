@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="js-calculator.css">
+    <title>JS Calculator</title>
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="the-calculator">
+            <div id="display">
+                <div id="input">
+                    <input type="text" id="number-1" placeholder="1st number:">
+
+                    <input type="text" id="number-2" placeholder="2nd number:">
+                </div>
+
+
+
+                <div id="result-output">
+                    <p></p>
+                </div>
+            </div>
+
+
+            <div id="buttons-wrapper">
+                <div class="operator">
+                    <button type="button" onclick="add()">+</button>
+                </div>
+
+                <div class="operator">
+                    <button type="button" onclick="subtract()">-</button>
+                </div>
+
+                <div class="operator">
+                    <button type="button" onclick="multiply()">×</button>
+                </div>
+
+                <div class="operator">
+                    <button type="button" onclick="divide()">÷</button>
+                </div>
+
+                <div class="operator">
+                    <button type="button" onclick="pow()">^</button>
+                </div>
+
+                <div class="operator">
+                    <button type="button" onclick="clearScreen()">C</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js-calculator.js">
+</script>
+</html>

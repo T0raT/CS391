@@ -1,0 +1,202 @@
+/* Below are boilerplate styling */
+body {
+    height: 100svh;
+    width: 100svw;
+    background: #3c3836;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+
+/* Page styling begins here */
+/* ------------------------------- */
+#page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+#the-calculator {
+    width: 100%;
+    height: 100%;
+
+    max-width: 400px;
+    max-height: 600px;
+
+    min-height: 280px;
+    min-width: 200px;
+
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem;
+
+    background-color: rgba(255, 255, 255, 0.40);
+
+    box-shadow:
+    #9d0006 -4px 4px,
+    #427b58 -8px 8px,
+    #b57614 -12px 12px,
+    #8f3f71 -16px 16px,
+    #076678 -20px 20px;
+
+    transition: 0.2s;
+
+}
+
+
+/* Display section begins here */
+/* ---------------------------------------- */
+#display {
+    width: 100%;
+    height: 40%;
+
+    text-align: center;
+
+    padding: 0.5rem;
+
+    border: 4px solid black;
+    border-radius: 12px;
+
+    background-color: #bccd95;
+    box-shadow: inset 0 4px 3px 0 rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+#input {
+    height: 50%;
+    border-bottom: 2px solid black;
+    padding-bottom: 7px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#number-1, #number-2 {
+    width: 100%;
+
+    border: none;
+    background: none;
+    outline: none;
+    margin: 2px;
+
+    font-size: calc(0.8rem + 0.5vw);
+    transition: 0.2s;
+
+    font-family: "Press Start 2P", sans-serif;
+}
+#result-output {
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+
+    font-size: calc(2rem + 0.8vw);
+    transition: 0.2s;
+
+    font-family: "Press Start 2P", sans-serif;
+}
+
+
+/* Button section begins here */
+/* ---------------------------------------- */
+
+#buttons-wrapper {
+    width: 100%;
+    height: 100%;
+
+    margin-top:3rem;
+    border-radius: 7px;
+    padding:-3px;
+
+    background-color: #cec0b7;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#buttons-wrapper .operator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#buttons-wrapper button {
+    width: 5rem;
+    height: 5rem;
+
+    border: none;
+    border-radius: 7px;
+
+    box-shadow: 5px 5px 10px 0 #a89984;
+    background-color: #fbf1c7;
+    cursor: pointer;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: calc(1rem + 0.5vw);
+    transition: 0.3s;
+}
+
+#buttons-wrapper button:hover {
+    background-color: #ebdbb2;
+    box-shadow: 5px 5px 10px 0 #665c54;
+    transform: scale(1.05) rotateY(180deg);
+    transition: 0.3s;
+}
+
+
+#buttons-wrapper button:active {
+    background-color: #d5c4a1;
+    box-shadow: inset 2px 2px 5px #3c3836;
+    transform: scale(1) rotateY(180deg);
+    transition: 0.3s;
+}
+
+
+/* TODO: Responsiveness tested with inspect element */
+/* Responsive */
+/* ---------------------------------------- */
+@media screen and (max-width: 360px), screen and (max-height: 480px) {
+    #the-calculator {
+        box-shadow:
+        #9d0006  0 0 0 4px,
+        #427b58  0 0 0 8px,
+        #b57614  0 0 0 12px,
+        #8f3f71  0 0 0 16px,
+        #076678 0 0 0 20px;
+
+        transition: 0.2s;
+    }
+
+    #number-1, #number-2 {
+        font-size: calc(0.5rem + 0.5vw);
+    }
+    #result-output {
+        font-size: calc(1rem + 0.8vw);
+    }
+
+    #buttons-wrapper button {
+        width: 3.3rem;
+        height: 3.3rem;
+        font-size: calc(0.5rem + 0.5vw);
+    }
+}
