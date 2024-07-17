@@ -9,7 +9,7 @@ const BackgroundImg = styled.div `
       height: 100%;
       width: 100%;
       background-position: center;
-      background-image: url("/monogatari.jpg");
+      background-image: url("monogatari.jpg");
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: auto;
