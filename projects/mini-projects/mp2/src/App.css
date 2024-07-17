@@ -4,8 +4,14 @@
     box-sizing: border-box;
 }
 
+
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+
+

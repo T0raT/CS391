@@ -33,7 +33,7 @@ const ShowCard = styled.div`
         box-shadow: 15px 15px 37px 0 rgba(0, 0, 0, 0.4) inset;
         border-radius: 0 16px 16px 0;
     }
-    
+
     #main-front,
     #main-back {
         backface-visibility: hidden;
@@ -46,19 +46,25 @@ const ShowCard = styled.div`
         padding: 0.5rem 1rem;
         line-height: 1.5;
     }
-    
+
     #main-front {
         transition: transform 0.8s;
         transform: ${(props) => (props.flip ? "rotateY(180deg)" : "rotateY(0)")};
         z-index: ${(props) => (props.flip ? `-1` : `1`)};
         overflow: ${(props) => (props.flip ? `hidden` : `scroll`)};
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
-    
+
+    #main-front::-webkit-scrollbar {
+        display: none;
+    }
+
     h3 {
         margin-bottom: 1rem;
         text-align: center;
     }
-    
+
     #misc-info {
         display: flex;
         flex-direction: row;
@@ -71,8 +77,10 @@ const ShowCard = styled.div`
         transition: transform 0.8s;
         z-index: ${(props) => (props.flip ? 1 : -1)};
         overflow: ${(props) => (props.flip ? `scroll` : `auto`)};
+        scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0);
+        scrollbar-width: thin;
     }
-  `
+`
 
 export default function ShowInfo(show) {
   const [flip, setFlip] = useState(false);

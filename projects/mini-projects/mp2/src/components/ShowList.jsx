@@ -33,7 +33,7 @@ export default function ShowList() {
 
   useEffect(() => {
     async function searchShow() {
-        const jikanAPI = await fetch(`https://api.jikan.moe/v4/anime?q=Bleach`);
+        const jikanAPI = await fetch(`https://api.jikan.moe/v4/anime?q=Gundam&order_by=popularity`);
         const jikanData = await jikanAPI.json();
         await setShows(jikanData.data);
         setLoading(false);
