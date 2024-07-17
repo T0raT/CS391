@@ -78,7 +78,7 @@ const ShowCard = styled.div`
         z-index: ${(props) => (props.flip ? 1 : -1)};
         overflow: ${(props) => (props.flip ? `scroll` : `auto`)};
         scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0);
-        scrollbar-width: thin;
+        scrollbar-width: initial;
     }
 `
 
