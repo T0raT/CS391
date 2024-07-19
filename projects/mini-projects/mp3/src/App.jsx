@@ -1,4 +1,4 @@
-import {BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes} from "react-router-dom";
+import {BrowserRouter, createBrowserRouter, Outlet, Route, RouterProvider, Routes} from "react-router-dom";
 import Header from './components/Header';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
@@ -14,27 +14,29 @@ Profile.propTypes = {
 };
 
 const router = createBrowserRouter([
-  { path: "/", element: <Profile userName="T0raT"/> },
-  { path: "*", element: <Root /> },
-
+  {path: "/", element:<Layout />, children: [
+      {path: "/", element: <Profile userName='T0raT' />},
+      {path: "/projects", element:<Projects userName='T0raT'/> },
+      {path: "/projects/:name", element:<ProjectDetail userName='T0raT'/> },
+    ]},
+  {path: "*", element: <div>404, page does not exist</div>},
 ]);
 
-export default function App() {
-  return <RouterProvider router={router} />;
+function Layout() {
+  return (
+      <>
+        <Header logo={logo} />
+        <Outlet/>
+      </>
+  )
 }
 
-function Root() {
+
+export default function App() {
 
   return (
         <div className='App'>
-            <Header logo={logo}/>
-            <Routes>
-              <Route path='/projects' element={<Projects userName='T0raT'/>}/>
-              <Route
-                  path='/projects/:name'
-                  element={<ProjectDetail userName='T0raT'/>}
-              />
-            </Routes>
+          <RouterProvider router={router} />
         </div>
   )
 }

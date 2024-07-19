@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Link from '../components/Link';
 import List from '../components/List';
 import PropTypes from "prop-types";
-import Project from "./ProjectDetail.jsx";
-
 
 const ProfileContainer = styled.div`
     width: 50%;

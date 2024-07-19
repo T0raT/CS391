@@ -14,13 +14,10 @@ const AppHeader = styled.header`
     nav {
         margin-bottom: 10px;
     }
-    nav > .App-link {
+    nav .App-link {
         margin-right: 10px;
     }
-
-    .App-link {
-        color: #61dafb;
-    }
+    
 
     .App-logo {
         height: 60px;
