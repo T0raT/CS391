@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function Project({ userName }) {
   const [loading, setLoading] = useState(false);
   const [project, setProject] = useState([]);
   const { name } = useParams();
-
 
   useEffect(() => {
     async function fetchData() {
@@ -27,16 +26,24 @@ function Project({ userName }) {
   }, [userName, name]);
 
   return (
-    <div className='Project-container'>
+    <div className="Project-container">
       <h2>Project: {project.name}</h2>
-      {loading ? <span>Loading...</span> : <div></div>}
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <div>
+          Go to repository page{" "}
+          <a href={project.html_url} target="_blank">
+            Here
+          </a>
+        </div>
+      )}
     </div>
   );
 }
 
 Project.propTypes = {
-  userName: PropTypes.string
+  userName: PropTypes.string,
 };
-
 
 export default Project;
