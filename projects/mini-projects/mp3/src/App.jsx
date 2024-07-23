@@ -1,9 +1,4 @@
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
@@ -18,15 +13,19 @@ Profile.propTypes = {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/tigerliu/cs391/projects/mini-projects/mp3/dist",
     element: <Layout />,
     children: [
-      { path: "/", element: <Profile userName="T0raT" /> },
-      { path: "/projects", element: <Projects userName="T0raT" /> },
-      { path: "/projects/:name", element: <ProjectDetail userName="T0raT" /> },
+      { path: "", element: <Profile userName="T0raT" /> },
+      { path: "projects", element: <Projects userName="T0raT" /> },
+      { path: "projects/:name", element: <ProjectDetail userName="T0raT" /> },
     ],
   },
-  { path: "*", element: <div>404, page does not exist</div> },
+  {
+    path: "*",
+    element: <div>404, page does not exist.</div>
+  }
+
 ]);
 
 function Layout() {
@@ -45,4 +44,3 @@ export default function App() {
     </div>
   );
 }
-

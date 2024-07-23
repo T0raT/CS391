@@ -45,10 +45,10 @@ function Header({ logo }) {
       <img src={logo} className='App-logo' alt='logo' />
       <h1>My Portfolio</h1>
       <nav>
-        <RouterLink to='/' className='App-link'>
+        <RouterLink to='' className='App-link'>
           About me
         </RouterLink>
-        <RouterLink to='/projects' className='App-link'>
+        <RouterLink to='projects' className='App-link'>
           Projects
         </RouterLink>
       </nav>
