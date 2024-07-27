@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import useSWR from "swr";
+import {ProductCard} from "./components/ProductCard.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+async function fetcher(...args) {
+    const res = await fetch(...args);
+    if (!res.ok) {
+        throw new Error("Network response was not ok");
+    }
+    // console.log("res: ", res);
+    const data = await res.json();
+    console.log("data fetching:", data);
+    return data;
 }
 
-export default App
+function App() {
+    const { data, error, isLoading } = useSWR(
+        "https://my-json-server.typicode.com/T0raT/mp4jsonserver/items",
+        fetcher,
+    );
+
+    if (error) return <div>failed to load</div>;
+    if (isLoading) return <div>loading...</div>;
+
+    return (
+        <div className="flex h-full w-full">
+            {/*<nav className="h-screen w-screen max-w-[18%]"></nav>*/}
+            <main className="h-screen w-screen grid grid-cols-2 place-items-center">
+              {data.map((item) => (
+                <ProductCard
+                  key={item.id}
+                  name={item.name}
+                  price={item.price}
+                  stock={item.availability}
+                  imgUrl={item.image_url}
+                  rating={item.rating}
+                />
+              ))}
+            </main>
+        </div>
+    );
+}
+
+export default App;
