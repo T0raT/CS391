@@ -1,37 +1,62 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function getStarRating(rating) {
-    const numericRating = typeof rating === 'string' ? parseFloat(rating) : rating;
-    if (isNaN(numericRating) || numericRating < 0) {
-        return 'N/A';
-    }
-    const fullStars = Math.floor(numericRating);
-    const halfStar = numericRating % 1 >= 0.5 ? 1 : 0;
-    let starRating = '★'.repeat(fullStars) + '☆'.repeat(halfStar);
-    return starRating;
+  const numericRating =
+    typeof rating === "string" ? parseFloat(rating) : rating;
+  if (isNaN(numericRating) || numericRating < 0) {
+    return "N/A";
+  }
+  const fullStars = Math.floor(numericRating);
+  const halfStar = numericRating % 1 >= 0.5 ? 1 : 0;
+  let starRating = "★".repeat(fullStars) + "☆".repeat(halfStar);
+  return starRating;
 }
 
 export function ProductCard(props) {
-    const name = props.name;
-    const price = props.price;
-    const stock = props.stock;
-    const rating = props.rating;
-    const imgUrl = props.imgUrl;
-    return (
-        <div className="card-container text-white border-2 border-zinc-300 w-full max-w-[20rem] h-[23rem]">
-            <img src={imgUrl} alt="Guitar pic here" className="w-full h-[50%] object-contain"/>
-            <p>{name}</p>
-            <p>{price}</p>
-            <p>{stock}</p>
-            <p>{rating === "N/A" ? "N/A" : `${getStarRating(rating)} ${rating}`}</p>
-        </div>
-    )
+  const name = props.name;
+  const price = props.price;
+  const stock = props.stock;
+  const rating = props.rating;
+  const imgUrl = props.imgUrl;
+  const type = props.type;
+  const finish = props.finish;
+  const description = props.description;
+  return (
+    <div
+      className="
+      text-white border-[0.1rem] rounded-[0.8rem]  
+      border-zinc-300/80 w-full max-w-[80%] h-auto
+      text-center mt-10 flex items-center 
+      transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105
+      "
+    >
+      <div id="item-baisc-info" className="basis-[30%]">
+        <img
+          src={imgUrl}
+          alt="Guitar pic here"
+          className=" rounded-t-[3%] mb-1"
+        />
+        <h1 className="text-calc-lg">{name}</h1>
+        <p className="text-calc-base">{price}</p>
+        <p className="text-calc-base">{stock}</p>
+        <p className="text-calc-base">
+          {rating === "N/A" ? "N/A" : `${getStarRating(rating)} ${rating}`}
+        </p>
+      </div>
+      <div id="item-details-info" className="basis-[70%]">
+        <p>{type}</p>
+        <p>{finish}</p>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
 }
 
 ProductCard.propTypes = {
-    name: PropTypes.string,
-    price: PropTypes.number,
-    stock: PropTypes.string,
-    rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    imgUrl: PropTypes.string
-}
+  name: PropTypes.string,
+  price: PropTypes.number,
+  stock: PropTypes.string,
+  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  imgUrl: PropTypes.string,
+};
+
