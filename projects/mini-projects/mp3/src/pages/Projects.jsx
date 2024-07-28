@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import List from "../components/List";
 import PropTypes from "prop-types";
-import Project from "./ProjectDetail.jsx";
 
 function Projects({ userName }) {
   const [loading, setLoading] = useState(true);

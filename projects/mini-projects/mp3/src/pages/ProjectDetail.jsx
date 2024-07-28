@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Project({ userName }) {
+function ProjectDetail({ userName }) {
   const [loading, setLoading] = useState(false);
   const [project, setProject] = useState([]);
   const { name } = useParams();
@@ -42,8 +42,8 @@ function Project({ userName }) {
   );
 }
 
-Project.propTypes = {
+ProjectDetail.propTypes = {
   userName: PropTypes.string,
 };
 
-export default Project;
+export default ProjectDetail;
