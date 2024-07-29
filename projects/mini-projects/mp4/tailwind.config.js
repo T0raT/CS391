@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        "calc-lg": "calc(0.8rem + 0.8vw)",
-        "calc-base": "calc(0.6rem + 0.6vw)",
+        "calc-lg": "calc(0.7rem + 0.7vw)",
+        "calc-base": "calc(0.5rem + 0.5vw)",
       },
     },
   },

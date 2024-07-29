@@ -22,20 +22,17 @@ export function ProductCard(props) {
   const finish = props.finish;
   const description = props.description;
   return (
+    // Font sizes uses the calc function with "text-calc-..." you can find the config written in the tailwind.config.js file
     <div
       className="
-      text-white border-[0.1rem] rounded-[0.8rem]  
-      border-zinc-300/80 w-full max-w-[80%] h-auto
-      text-center mt-10 flex items-center 
+      text-white border-y-[0.1rem] border-zinc-300/80 
+      w-full max-w-[70%] h-auto py-5 mt-10
+      text-center flex items-center 
       transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105
       "
     >
-      <div id="item-baisc-info" className="basis-[30%]">
-        <img
-          src={imgUrl}
-          alt="Guitar pic here"
-          className=" rounded-t-[3%] mb-1"
-        />
+      <div id="item-baisc-info" className="basis-[25%]">
+        <img src={imgUrl} alt="Guitar pic here" className="mb-1" />
         <h1 className="text-calc-lg">{name}</h1>
         <p className="text-calc-base">{price}</p>
         <p className="text-calc-base">{stock}</p>
@@ -59,4 +56,3 @@ ProductCard.propTypes = {
   rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imgUrl: PropTypes.string,
 };
-
