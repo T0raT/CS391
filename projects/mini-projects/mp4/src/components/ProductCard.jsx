@@ -25,9 +25,9 @@ export function ProductCard(props) {
     // Font sizes uses the calc function with "text-calc-..." you can find the config written in the tailwind.config.js file
     <div
       className="
-      text-white border-y-[0.1rem] border-zinc-300/80 
       w-full max-w-[70%] h-auto py-5 mt-10
-      text-center flex items-center 
+      text-center flex items-center
+      text-white border-y-[0.1rem] border-zinc-300/80
       transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105
       "
     >
