@@ -23,27 +23,29 @@ export function ProductCard(props) {
   const description = props.description;
   return (
     // Font sizes uses the calc function with "text-calc-..." you can find the config written in the tailwind.config.js file
-    <div
-      className="
-      w-full max-w-[70%] h-auto py-5 mt-10
-      text-center flex items-center
-      text-white border-y-[0.1rem] border-zinc-300/80
-      transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105
-      "
-    >
+    <div className="delay-50 font-family font-futura mt-10 flex h-auto w-full max-w-[70%] items-center border-y-[0.1rem] border-zinc-300/80 py-5 text-center text-white transition ease-in-out hover:-translate-y-1 hover:scale-105">
       <div id="item-baisc-info" className="basis-[25%]">
         <img src={imgUrl} alt="Guitar pic here" className="mb-1" />
         <h1 className="text-calc-lg">{name}</h1>
-        <p className="text-calc-base">{price}</p>
+        <p className="text-calc-base">${price}</p>
         <p className="text-calc-base">{stock}</p>
         <p className="text-calc-base">
           {rating === "N/A" ? "N/A" : `${getStarRating(rating)} ${rating}`}
         </p>
       </div>
-      <div id="item-details-info" className="basis-[70%]">
-        <p>{type}</p>
-        <p>{finish}</p>
-        <p>{description}</p>
+      <div
+        id="item-details-info"
+        className="relative flex h-full basis-[75%] flex-col justify-center"
+      >
+        <div className="absolute left-3 top-[-1rem]">
+          <p
+            className={`inline justify-self-start rounded-lg px-1 ${type === "Acoustic" ? `bg-[#b57614]` : `bg-[#076678]`} text-calc-base`}
+          >
+            {type}
+          </p>
+          <p className="ml-5 inline text-calc-base">{finish}</p>
+        </div>
+        <p className="px-4 text-start text-calc-base">{description}</p>
       </div>
     </div>
   );
@@ -52,7 +54,10 @@ export function ProductCard(props) {
 ProductCard.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
-  stock: PropTypes.string,
+  stock: PropTypes.string, // This really should have been a boolean or number
   rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   imgUrl: PropTypes.string,
+  type: PropTypes.string,
+  finish: PropTypes.string,
+  description: PropTypes.string,
 };

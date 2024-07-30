@@ -5,7 +5,10 @@ export default {
     extend: {
       fontSize: {
         "calc-lg": "calc(0.7rem + 0.7vw)",
-        "calc-base": "calc(0.5rem + 0.5vw)",
+        "calc-base": "calc(0.55rem + 0.55vw)",
+      },
+      fontFamily: {
+        futura: ["futura-pt"],
       },
     },
   },
