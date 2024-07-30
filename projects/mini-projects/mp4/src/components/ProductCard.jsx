@@ -12,6 +12,23 @@ function getStarRating(rating) {
   return starRating;
 }
 
+function getFinishColor (color) {
+  switch (color) {
+    case 'Greenburst':
+      return 'bg-[#3a6920]';
+    case 'Natural':
+      return 'bg-[#936605]';
+    case 'Dusk Sun Red':
+      return 'bg-[#9d0020]';
+    case 'Sunburst':
+      return 'bg-[#b25f15]'
+    case 'Desert Sun Yellow':
+      return 'bg-[#cfdc52]';
+    default:
+      return '';
+      }
+}
+
 export function ProductCard(props) {
   const name = props.name;
   const price = props.price;
@@ -39,11 +56,11 @@ export function ProductCard(props) {
       >
         <div className="absolute left-3 top-[-1rem]">
           <p
-            className={`inline justify-self-start rounded-lg px-1 ${type === "Acoustic" ? `bg-[#b57614]` : `bg-[#076678]`} text-calc-base`}
+            className={`inline rounded-lg px-1 ${type === "Acoustic" ? `bg-[#b57614]` : `bg-[#076678]`} text-calc-base`}
           >
             {type}
           </p>
-          <p className="ml-5 inline text-calc-base">{finish}</p>
+          <p className={`ml-5 inline rounded-lg px-1 ${getFinishColor(finish)} text-calc-base `}>{finish}</p>
         </div>
         <p className="px-4 text-start text-calc-base">{description}</p>
       </div>
