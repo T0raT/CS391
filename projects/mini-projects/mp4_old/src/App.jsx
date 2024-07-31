@@ -1,4 +1,6 @@
 import { ProductList } from "./components/ProductList.jsx";
+import useSWR from "swr";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -6,8 +8,8 @@ function App() {
       <header className="bg-[#9d0020] py-5 text-center font-futura text-4xl text-white">
         Guitar Store Admin Panel
       </header>
-      <main className="flex h-screen w-screen flex-col items-center overflow-auto pb-10">
-        <ProductList />
+      <main className="flex h-auto w-full flex-col items-center pb-10">
+        <Outlet />
       </main>
     </div>
   );
