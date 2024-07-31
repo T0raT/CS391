@@ -1,4 +1,4 @@
-import { createContext, useCallback, useReducer } from 'react';
+import { createContext, useCallback, useReducer } from "react";
 
 export const ListsContext = createContext();
 
@@ -6,31 +6,31 @@ const initialState = {
   lists: [],
   list: {},
   loading: true,
-  error: '',
+  error: "",
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'GET_LISTS_SUCCESS':
+    case "GET_LISTS_SUCCESS":
       return {
         ...state,
         lists: action.payload,
         loading: false,
       };
-    case 'GET_LISTS_ERROR':
+    case "GET_LISTS_ERROR":
       return {
         ...state,
         lists: [],
         loading: false,
         error: action.payload,
       };
-    case 'GET_LIST_SUCCESS':
+    case "GET_LIST_SUCCESS":
       return {
         ...state,
         list: action.payload,
         loading: false,
       };
-    case 'GET_LIST_ERROR':
+    case "GET_LIST_ERROR":
       return {
         ...state,
         list: {},
@@ -49,30 +49,30 @@ export const ListsContextProvider = ({ children }) => {
   const fetchLists = useCallback(async () => {
     try {
       const data = await fetch(
-          `https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/lists`,
+        `https://my-json-server.typicode.com/T0raT/mp4jsonserver/lists`,
       );
       const result = await data.json();
 
       if (result) {
-        dispatch({ type: 'GET_LISTS_SUCCESS', payload: result });
+        dispatch({ type: "GET_LISTS_SUCCESS", payload: result });
       }
     } catch (e) {
-      dispatch({ type: 'GET_LISTS_ERROR', payload: e.message });
+      dispatch({ type: "GET_LISTS_ERROR", payload: e.message });
     }
   }, []);
 
   const fetchList = useCallback(async (listId) => {
     try {
       const data = await fetch(
-        `https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/lists/${listId}`,
+        `https://my-json-server.typicode.com/T0raT/mp4jsonserver/lists/${listId}`,
       );
       const result = await data.json();
 
       if (result) {
-        dispatch({ type: 'GET_LIST_SUCCESS', payload: result });
+        dispatch({ type: "GET_LIST_SUCCESS", payload: result });
       }
     } catch (e) {
-      dispatch({ type: 'GET_LIST_ERROR', payload: e.message });
+      dispatch({ type: "GET_LIST_ERROR", payload: e.message });
     }
   }, []);
 

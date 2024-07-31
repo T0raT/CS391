@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Button from '../Button/Button';
+import styled from "styled-components";
+import Button from "../Button/Button.jsx";
 
 const NavBarWrapper = styled.div`
   width: 100%;
@@ -25,13 +25,13 @@ const NavBarButton = styled(Button)`
 
 function NavBar({ goBack, title, openForm = false }) {
   return (
-    <NavBarWrapper>
+    <div className="flex w-full bg-[#9d0020] py-5 text-center font-futura text-calc-base text-white">
       {goBack && <NavBarButton onClick={goBack}>{`< Go Back`}</NavBarButton>}
       <Title>{title}</Title>
       {openForm && (
         <NavBarButton onClick={openForm}>{`+ Add Item`}</NavBarButton>
       )}
-    </NavBarWrapper>
+    </div>
   );
 }
 

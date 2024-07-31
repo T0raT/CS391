@@ -1,5 +1,5 @@
-import { ListsContextProvider } from './ListsContext';
-import { ItemsContextProvider } from './ItemsContext';
+import { ListsContextProvider } from './ListsContext.jsx';
+import { ItemsContextProvider } from './ItemsContext.jsx';
 
 const AppContext = ({ children }) => {
   return (

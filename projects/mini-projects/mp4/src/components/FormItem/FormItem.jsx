@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FormItemWrapper = styled.div`
   display: flex;
@@ -11,6 +11,7 @@ const Label = styled.label`
   display: block;
   font-weight: bold;
   padding: 10px 0;
+  color: white;
 `;
 
 const Input = styled.input`
@@ -25,8 +26,8 @@ const Input = styled.input`
 function FormItem({
   id,
   label,
-  type = 'text',
-  placeholder = '',
+  type = "text",
+  placeholder = "",
   value,
   handleOnChange,
 }) {
