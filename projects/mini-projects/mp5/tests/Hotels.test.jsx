@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Cypress', () => {
+
+
+test.describe('E2E', () => {
   test.beforeEach(async ({ page }) => {});
 
   test('opens the app and clicks on a hotel', async ({ page }) => {
@@ -19,7 +21,7 @@ test.describe('Cypress', () => {
     await scope.locator('input[name=title]').fill('Test review');
     await scope
         .locator('input[name=description]')
-        .fill('Is a test review by Cypress');
+        .fill('Is a test review by Playwright');
     await scope.locator('input[name=rating]').fill(4);
     await scope.locator('button').click();
   });
